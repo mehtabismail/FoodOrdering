@@ -1,4 +1,4 @@
-import { RESTAURANT_CDN_URL } from "../utils/constants";
+import { RESTAURANT_CDN_URL, RESTAURANT_DEFAULT_URL } from "../utils/constants";
 
 const RestaurantCard = ({ restaurant }) => {
   const { cloudinaryImageId, name, sla, cuisines, locality } = restaurant?.info;
@@ -6,7 +6,11 @@ const RestaurantCard = ({ restaurant }) => {
   return (
     <div className='m-2 mb-4 p-4 rounded-lg  bg-gray-100 hover:bg-gray-200 hover:shadow-xl'>
       <img
-        src={RESTAURANT_CDN_URL + cloudinaryImageId}
+        src={
+          cloudinaryImageId
+            ? RESTAURANT_CDN_URL + cloudinaryImageId
+            : RESTAURANT_DEFAULT_URL
+        }
         className='res-logo rounded-lg h-[170px] w-full'
         alt='res-logo'
       />
@@ -41,7 +45,6 @@ const RestaurantCard = ({ restaurant }) => {
 };
 
 export const withPromotedLabel = (RestaurantCard) => {
-  console.log("found my card");
   return (props) => (
     <div>
       <label className='absolute bg-black text-white p-2 m-2 rounded-lg'>

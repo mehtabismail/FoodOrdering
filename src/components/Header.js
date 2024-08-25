@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
 import { useOnlineStatus } from "../hooks";
+import { useContext } from "react";
+import { UserContext } from "../context";
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
+
+  const { logged_in_user } = useContext(UserContext);
 
   return (
     <div className='flex justify-between items-center shadow-lg'>
@@ -32,6 +36,9 @@ const Header = () => {
           </li>
           <li className='px-4 font-normal text-2xl'>
             <Link to='/grocery'>Grocery</Link>
+          </li>
+          <li className='px-4 font-normal text-2xl'>
+            <Link to='/'>{logged_in_user}</Link>
           </li>
         </ul>
       </div>
