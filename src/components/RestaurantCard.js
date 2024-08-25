@@ -1,24 +1,21 @@
 import { RESTAURANT_CDN_URL } from "../utils/constants";
 
 const RestaurantCard = ({ restaurant }) => {
-  const { cloudinaryImageId, name, sla, cuisines, locality, id } =
-    restaurant?.info;
+  const { cloudinaryImageId, name, sla, cuisines, locality } = restaurant?.info;
 
   return (
-    <div className='res-card'>
+    <div className='m-2 mb-4 p-4 rounded-lg  bg-gray-100 hover:bg-gray-200 hover:shadow-xl'>
       <img
         src={RESTAURANT_CDN_URL + cloudinaryImageId}
-        className='res-logo'
+        className='res-logo rounded-lg h-[170px] w-full'
         alt='res-logo'
       />
-      <div className='res-card-content'>
+      <div>
         <div style={{ marginBottom: 8, marginTop: 5 }}>
-          <text style={{ fontSize: 18, fontWeight: "bold" }}>{name}</text>
+          <text className='font-bold text-lg'>{name}</text>
         </div>
         <div>
-          <text style={{ fontSize: 14, fontWeight: "bolder" }}>
-            {sla?.slaString}
-          </text>
+          <text className='font-semibold text-base'>{sla?.slaString}</text>
         </div>
 
         <div
@@ -29,30 +26,28 @@ const RestaurantCard = ({ restaurant }) => {
             textOverflow: "ellipsis",
           }}
         >
-          <text
-            style={{
-              fontSize: 14,
-              fontWeight: "initial",
-              color: "grey",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {cuisines}
+          <text className='font-semibold text-xs text-gray-500 text-nowrap'>
+            {cuisines.join(", ")}
           </text>
         </div>
         <div>
-          <text
-            style={{
-              fontSize: 14,
-              fontWeight: "initial",
-              color: "grey",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {locality}
+          <text className='font-semibold text-xs text-gray-500 text-nowrap'>
+            {locality ?? "---"}
           </text>
         </div>
       </div>
+    </div>
+  );
+};
+
+export const withPromotedLabel = (RestaurantCard) => {
+  console.log("found my card");
+  return (props) => (
+    <div>
+      <label className='absolute bg-black text-white p-2 m-2 rounded-lg'>
+        Promoted
+      </label>
+      <RestaurantCard {...props} />
     </div>
   );
 };

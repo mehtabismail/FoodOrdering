@@ -1,4 +1,8 @@
-.header {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .header {
   display: flex;
   border: 1px solid black;
   justify-content: space-between;
@@ -22,7 +26,6 @@
 .body {
   margin-top: 20px;
   width: "80%";
-  /* background-color: cadetblue; */
 }
 
 .search {
@@ -37,7 +40,6 @@
 .res-card-container {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
 }
 
 .res-logo {
@@ -73,7 +75,7 @@
 
 .res-card:hover {
   cursor: pointer;
-  /* border: 1px solid black; */
+  /* border: 1px solid black; 
   box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
 }
 
@@ -108,13 +110,11 @@
 .menu-heading {
   display: flex;
   margin-top: 30px;
-  /* margin-bottom: 10px; */
 }
 
 .menu-sub {
   display: flex;
   justify-content: space-between;
-  /* margin-inline: 70px; */
   padding-block: 30px;
   border-bottom: 1px solid grey;
 }
@@ -129,4 +129,4 @@
   width: 80%;
   align-self: center;
   margin: auto;
-}
+} */

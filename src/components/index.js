@@ -1,6 +1,8 @@
 export { default as Header } from "./Header";
 export { default as RestaurantCard } from "./RestaurantCard";
 export { default as RestaurantMenue } from "./RestaurantMenue";
+export { default as RestaurantCategory } from "./RestaurantCategory";
+export { default as CategoryList } from "./CategoryList";
 export { default as Search } from "./Search";
 export { default as Contact } from "./Contact";
 export { default as About } from "./About";

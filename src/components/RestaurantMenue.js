@@ -2,30 +2,39 @@ import { useParams } from "react-router-dom";
 import { RESTAURANT_CDN_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { useRestaurantMenu } from "../hooks";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenue = () => {
   const { resId } = useParams();
-  const { resInfo, menueInfo } = useRestaurantMenu(resId);
+  const { resInfo, categories } = useRestaurantMenu(resId);
 
   if (resInfo == null) {
     return <Shimmer />;
   }
   return (
-    <div className='menue-top'>
-      <div className='res-head'>
-        <img
+    <div className='text-center'>
+      <div className=''>
+        {/* <img
           src={RESTAURANT_CDN_URL + resInfo?.cloudinaryImageId}
           className='single-res-logo'
           alt='single-res-logo'
-        />
+        /> */}
         <div className='single-res-inside'>
-          <h1>{resInfo?.name}</h1>
-          <p>
+          <h1 className='font-bold text-2xl text-center my-6'>
+            {resInfo?.name}
+          </h1>
+          <p className='font-semibold text-lg text-center'>
             {resInfo?.cuisines.join(", ") + " - " + resInfo?.costForTwoMessage}
           </p>
         </div>
       </div>
-      {!!menueInfo ? (
+      {categories.map((category) => (
+        <RestaurantCategory
+          key={category.card.card.title}
+          data={category?.card?.card}
+        />
+      ))}
+      {/* {!!menueInfo ? (
         <div className='menu-bottom'>
           <div className='menu-heading'>
             <h2>{menueInfo?.title}</h2>
@@ -56,7 +65,7 @@ const RestaurantMenue = () => {
         </div>
       ) : (
         <h3>Ooops Recommended Menu Not Found..!</h3>
-      )}
+      )} */}
     </div>
   );
 };
