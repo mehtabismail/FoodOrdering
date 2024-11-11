@@ -1,7 +1,15 @@
 import React from "react";
 import { RESTAURANT_CDN_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cart/CartSlice";
 
 const CategoryList = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const addToCartHandler = (cardInfo) => {
+    dispatch(addToCart(cardInfo));
+  };
+
   return (
     <div>
       {items.map((item) => (
@@ -27,7 +35,10 @@ const CategoryList = ({ items }) => {
               className='w-full rounded-sm'
             />
             <div className='absolute -mt-4'>
-              <button className='mx-16 p-2 rounded-lg shadow-lg bg-black text-white '>
+              <button
+                onClick={() => addToCartHandler(item.card.info)}
+                className='mx-16 p-2 rounded-lg shadow-lg bg-black text-white '
+              >
                 Add +
               </button>
             </div>

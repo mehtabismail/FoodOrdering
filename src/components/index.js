@@ -11,3 +11,5 @@ export { default as Cart } from "./Cart";
 export { default as Error } from "./Error";
 export { default as Body } from "./Body";
 export { default as Shimmer } from "./Shimmer";
+export { default as CartItems } from "./CartItems";
+export { default as CartOrderSummary } from "./CartOrderSummary";

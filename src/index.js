@@ -5,6 +5,8 @@ import reportWebVitals from "./reportWebVitals";
 import { Body, Header, RestaurantMenue } from "./components";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Contact, About, Error, Cart, Shimmer } from "./components";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -58,7 +60,10 @@ const appRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
-  <RouterProvider router={appRouter} />
+  <Provider store={store}>
+    <RouterProvider router={appRouter} />
+  </Provider>
+
   // </React.StrictMode>
 );
 

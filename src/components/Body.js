@@ -24,7 +24,7 @@ const Body = () => {
   }
 
   return (
-    <div className='body w-full'>
+    <div className='body w-full '>
       <div className='flex m-4 p-4 items-center'>
         <Search
           searchText={searchText}

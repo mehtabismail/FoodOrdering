@@ -13,4 +13,11 @@
 => Controlled & UnControlled Components
 => State Lifting
 => Context Api (State Management)
-=> Redux
+=> Redux & Redux Toolkit
+=> Test Cases
+
+# Types of Testing (Development)
+
+=> Unit Testing
+=> Integration Testing
+=> End to End Testing - e2e testing
